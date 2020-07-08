@@ -5,9 +5,9 @@
       separator>
 
       <q-item 
-        v-for="user in users" 
-        :key="user.id" 
-        to="/chat"
+        v-for="(user, key) in users" 
+        :key="key" 
+        :to="'/chat/'+key"
         clickable 
         v-ripple>
         <q-item-section avatar>
@@ -21,7 +21,8 @@
         </q-item-section>
 
         <q-item-section side>
-          <q-badge color="user.online ? 'light-green-5' : 'qrey-4'" >
+          <q-badge 
+            :color="user.online ? 'light-green-5' : 'grey-4'" >
             {{ user.online ? 'Online' : "offline"}}
           </q-badge>
         </q-item-section>
@@ -33,23 +34,10 @@
 </template>
 
 <script>
+  import { mapGetters } from 'vuex'
   export default {
-    data () {
-      return {
-        users:  [ {
-            id: 1,
-            name: 'Ryowu',
-            online: true
-          }, {
-            id: 2,
-            name: 'Janet',
-            online: false
-          }, {
-            id: 3,
-            name: 'Meimei',
-            online: true
-          } ]
-      }
+    computed: {
+      ...mapGetters('store',['users'])
     }
   }
 </script>
