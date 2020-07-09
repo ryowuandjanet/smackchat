@@ -73,7 +73,7 @@ const actions = {
             online:true
           }
         })
-        dispatch('firebaseGetUser')
+        dispatch('firebaseGetUsers')
         this.$router.push('/', () => {})
       }
       else {
@@ -90,9 +90,11 @@ const actions = {
   },
   firebaseUpdateUser({}, payload) {
     console.log('payload: ',payload)
-    firebaseDb.ref('users/' + payload.userId).update(payload.updates)
+    if (payload.userId) {
+      firebaseDb.ref('users/' + payload.userId).update(payload.updates)
+    }
   },
-  firebaseGetUser({commit}) {
+  firebaseGetUsers({commit}) {
     firebaseDb.ref('users').on('child_added', snapshot => {
       let userDetails =snapshot.val()
       let userId = snapshot.key
@@ -127,6 +129,12 @@ const actions = {
       messagesRef.off('child_added')
       commit('clearMessages')
     }
+  },
+  firebaseSendMessage({},payload) {
+    firebaseDb.ref('chats/'+ state.userDetails.userId + '/'+ payload.otherUserId).push(payload.message)
+
+    payload.message.from = 'them'
+    firebaseDb.ref('chats/'+ payload.otherUserId + '/'+ state.userDetails.userId).push(payload.message)
   }
 }
 

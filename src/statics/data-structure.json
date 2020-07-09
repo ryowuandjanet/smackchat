@@ -11,7 +11,7 @@
       "online": true
     }
   },
-  "chat": {
+  "chats": {
     "USERID1": {
       "USERID2": {
         "MESSAGEID1": {
