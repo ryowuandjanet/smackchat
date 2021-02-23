@@ -23,7 +23,7 @@
       <q-btn 
         @click="submitForm"
         color="primary" 
-        label="Primary" />
+        :label="tab" />
     </div>
   </q-form>
 </template>

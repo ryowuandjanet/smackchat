@@ -1,16 +1,17 @@
-import * as firebase from "firebase/app";
+import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/database";
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
-    apiKey: "AIzaSyA_mmnGtHDboYQqr0kOmK2I6qjCZpJB2JQ",
-    authDomain: "smackchat-4b52f.firebaseapp.com",
-    databaseURL: "https://smackchat-4b52f.firebaseio.com",
-    projectId: "smackchat-4b52f",
-    storageBucket: "smackchat-4b52f.appspot.com",
-    messagingSenderId: "238193412504",
-    appId: "1:238193412504:web:6f5628f1c7ace0393b83ed"
+  apiKey: "AIzaSyA5JlSbN5p0FKyNKkFt71YghOjuMoYtuC0",
+  authDomain: "smackchat-eb0f3.firebaseapp.com",
+  databaseURL: "https://smackchat-eb0f3-default-rtdb.firebaseio.com",
+  projectId: "smackchat-eb0f3",
+  storageBucket: "smackchat-eb0f3.appspot.com",
+  messagingSenderId: "724298650263",
+  appId: "1:724298650263:web:870f2b02c60484c3808fd2",
+  measurementId: "G-JLL7MX6X50"
 };
 // Initialize Firebase
 let firebaseApp = firebase.initializeApp(firebaseConfig);
